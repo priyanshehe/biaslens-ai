@@ -5,6 +5,17 @@ AI tool to detect and reduce bias in machine learning models.
 
 BiasLens AI is a prototype system designed to detect, analyze, and reduce bias in machine learning decision-making processes. The goal of this project is to demonstrate how unfair patterns in data can influence AI models, and how simple corrective techniques can improve fairness.
 
+# How to Use
+
+1. Upload your dataset (CSV format)
+2. Ensure it contains:
+   - Gender
+   - Income
+   - CreditScore
+   - Approved
+3. View bias detection results
+4. Click "Fix Bias" to improve fairness
+
 
 # Problem Statement
 
@@ -182,5 +193,5 @@ BiasLens AI demonstrates how bias can be detected and reduced in machine learnin
 # Repository Structure
 
 - app.py → Main application  
-- data.csv → Dataset used for demonstration  
-- README.md → Project documentation  
+- data.csv → Dataset used for demonstration(demo dataset)
+- README.md → Project documentation
