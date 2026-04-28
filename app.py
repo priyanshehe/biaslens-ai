@@ -12,15 +12,20 @@ st.set_page_config(page_title="BiasLens AI", layout="wide")
 
 st.title("BiasLens AI")
 st.subheader("Detect & Fix Bias in AI Models")
+st.write("Upload Dataset")
+uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
-# Upload or use default dataset
-file = st.file_uploader("Upload your dataset (CSV)", type=["csv"])
-
-if file:
-    df = pd.read_csv(file)
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
 else:
-    df = pd.read_csv("data.csv")
-    st.info("Using default dataset")
+    st. warning("Please upload a dataset to continue...")
+    st.stop()
+
+required_columns = ["Gender", "Income", "CreditScore", "Approved"]
+
+if not all(col in df.columns for col in required_columns):
+    st.error("Dataset must contain: Gender, Income, CreditScore, Approved")
+    st.stop()
 
 st.write("### Dataset Preview")
 st.dataframe(df)
